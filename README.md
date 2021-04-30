@@ -2,7 +2,7 @@
 # python-file-manager
 
 
-Hi! **file-manager** is a file manager system (for windows) based on *Python 3.7* including **unit test cases using pytest**. It is made by [Syed Basit Ahmad](https://github.com/syedbasitahmad). With this python based file explorer you can view files, folders and perform actions on them. Actions such as moving them, deleting them (permanently or sending them to recycle bin),counting the numbers of characters in a file(with or without space). 
+Hi! **file-manager** is a file manager system (for windows) based on *Python 3.7* including **unit test cases using pytest and exception handling**. It is made by [Syed Basit Ahmad](https://github.com/syedbasitahmad). With this python based file explorer you can view files, folders and perform actions on them. Actions such as moving them, deleting them (permanently or sending them to recycle bin),counting the numbers of characters in a file(with or without space). 
 
 ## Modules Used:
 
