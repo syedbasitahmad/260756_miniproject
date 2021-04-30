@@ -5,14 +5,15 @@ import easygui
 from tkinter import filedialog
 from tkinter import messagebox as mb
 
+
 def count_characters():
-    #open file in read mode
+    # open file in read mode
     file = open("data.txt", "r")
 
-    #read the content of file
+    # read the content of file
     data = file.read()
 
-    #get the length of the data
+    # get the length of the data
     number_of_characters = len(data)
 
     print('Number of characters in text file :', number_of_characters)
@@ -20,18 +21,34 @@ def count_characters():
     file.close()
     return number_of_characters
 
+
 def count_without_space():
-    #open file in read mode
+    # open file in read mode
     file = open("data.txt", "r")
 
-    #read the content of file and replace spaces with nothing
-    data = file.read().replace(" ","")
+    # read the content of file and replace spaces with nothing
+    data = file.read().replace(" ", "")
 
-    #get the length of the data
+    # get the length of the data
     number_of_characters = len(data)
 
     print('Number of characters in text file :', number_of_characters)
     return number_of_characters
+
+
+def count_occurances():
+    # get file object reference to the file
+    file = open("data.txt", "r")
+
+    # read content of file to string
+    data = file.read()
+
+    # get number of occurrences of the substring in the string
+    occurrences = data.count("Quem")
+
+    print('Number of occurrences of the word :', occurrences)
+    return occurrences
+
 
 # open a file box window
 # when we want to select a file
@@ -125,26 +142,26 @@ root = Tk()
 # creating label and buttons to perform operations
 Label(root, text="260756 File Manager System", font=("Helvetica", 16), fg="blue").grid(row=5, column=2)
 
-Button(root, text="Count all characters in a text file", command=count_characters).grid(row=95, column=2)
+Button(root, text="Count all characters in a text file", command=count_characters).grid(row=15, column=2)
 
-Button(root, text="Count all characters without space", command=count_without_space).grid(row=1055, column=2)
+Button(root, text="Count all characters without space", command=count_without_space).grid(row=25, column=2)
 
-Button(root, text="Open a File", command=open_file).grid(row=15, column=2)
+Button(root, text="Count occurances", command=count_occurances).grid(row=35, column=2)
 
-Button(root, text="Copy a File", command=copy_file).grid(row=25, column=2)
+Button(root, text="Open a File", command=open_file).grid(row=45, column=2)
 
-Button(root, text="Delete a File", command=delete_file).grid(row=35, column=2)
+Button(root, text="Copy a File", command=copy_file).grid(row=55, column=2)
 
-Button(root, text="Rename a File", command=rename_file).grid(row=45, column=2)
+Button(root, text="Delete a File", command=delete_file).grid(row=65, column=2)
 
-Button(root, text="Move a File", command=move_file).grid(row=55, column=2)
+Button(root, text="Rename a File", command=rename_file).grid(row=75, column=2)
 
-Button(root, text="Make a Folder", command=make_folder).grid(row=75, column=2)
+Button(root, text="Move a File", command=move_file).grid(row=85, column=2)
 
-Button(root, text="Remove a Folder", command=remove_folder).grid(row=65, column=2)
+Button(root, text="Make a Folder", command=make_folder).grid(row=95, column=2)
 
-Button(root, text="List all Files in Directory", command=list_files).grid(row=85, column=2)
+Button(root, text="Remove a Folder", command=remove_folder).grid(row=105, column=2)
 
-
+Button(root, text="List all Files in Directory", command=list_files).grid(row=115, column=2)
 
 root.mainloop()

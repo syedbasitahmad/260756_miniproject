@@ -23,14 +23,15 @@ You need to install *send2trash* module first. You can do this by using the foll
 
 ## Functions you can perform on files/folders
 
- 1. Delete files/folder permanently
- 2. Send files/folder to Recycle Bin
- 3. Directly open files from the manager
- 4. Expand folders
- 5. Move files/folders to another location
- 6. Copy files/folders to another location
- 7. Count the number of characters in a text file with spaces.
- 8. Count the number of characters without spaces
+ 1. Count the number of characters in a text file with spaces.
+ 2. Count the number of characters without spaces
+ 3. Count all occurances of a specific word in a text file
+ 4. Delete files/folder permanently
+ 5. Send files/folder to Recycle Bin
+ 6. Directly open files from the manager
+ 7. Expand folders
+ 8. Move files/folders to another location
+ 9. Copy files/folders to another location
  
- ## I have also included two test cases using pytest.
+ ## I have also included three test cases using pytest.
  
