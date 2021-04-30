@@ -7,54 +7,93 @@ from tkinter import messagebox as mb
 
 
 def count_characters():
-    # open file in read mode
-    file = open("data.txt", "r")
+    try:
+        # open file in read mode
+        file = open("data.txt", "r")
 
-    # read the content of file
-    data = file.read()
+        # read the content of file
+        data = file.read()
 
-    # get the length of the data
-    number_of_characters = len(data)
+        # get the length of the data
+        number_of_characters = len(data)
 
-    print('Number of characters in text file :', number_of_characters)
-    # Major functions of file manager
-    file.close()
-    return number_of_characters
+        print('Number of characters in text file :', number_of_characters)
+        # Major functions of file manager
+        file.close()
+        return number_of_characters
+    except FileNotFoundError:
+        print("File Not Found Please check the location of file")
 
 
 def count_without_space():
-    # open file in read mode
-    file = open("data.txt", "r")
+    try:
+        # open file in read mode
+        file = open("data.txt", "r")
 
-    # read the content of file and replace spaces with nothing
-    data = file.read().replace(" ", "")
+        # read the content of file and replace spaces with nothing
+        data = file.read().replace(" ", "")
 
-    # get the length of the data
-    number_of_characters = len(data)
+        # get the length of the data
+        number_of_characters = len(data)
 
-    print('Number of characters in text file :', number_of_characters)
-    return number_of_characters
+        print('Number of characters in text file :', number_of_characters)
+        file.close()
+        return number_of_characters
+    except FileNotFoundError:
+        print("File Not Found Please check the location of file")
 
 
-def count_occurances():
-    # get file object reference to the file
-    file = open("data.txt", "r")
+def count_occurrences():
+    try:
+        # get file object reference to the file
+        file = open("data.txt", "r")
 
-    # read content of file to string
-    data = file.read()
+        # read content of file to string
+        data = file.read()
 
-    # get number of occurrences of the substring in the string
-    occurrences = data.count("Quem")
+        # get number of occurrences of the substring in the string
+        occurrences = data.count("Quem")
 
-    print('Number of occurrences of the word :', occurrences)
-    return occurrences
+        print('Number of occurrences of the word :', occurrences)
+        file.close()
+        return occurrences
+    except FileNotFoundError:
+        print("File Not Found Please check the location of file")
+
+
+def count_words():
+    try:
+        file = open("data.txt", "rt")
+        data = file.read()
+        words = data.split()
+
+        print('Number of words in text file :', len(words))
+        file.close()
+        return len(words)
+    except FileNotFoundError:
+        print("File Not Found Please check the location of file")
+
+
+def append_text():
+    try:
+        fin = open("data.txt", "a")
+
+        fin.write('')
+        print("Your text is appended")
+        fin.close()
+        return 1
+    except FileNotFoundError:
+        print("File Not Found Please check the location of file")
 
 
 # open a file box window
 # when we want to select a file
 def open_window():
-    read = easygui.fileopenbox()
-    return read
+    try:
+        read = easygui.fileopenbox()
+        return read
+    except FileNotFoundError:
+        mb.showinfo('confirmation', "File not found!")
 
 
 # open file function
@@ -85,14 +124,14 @@ def delete_file():
 
 # rename file function
 def rename_file():
-    chosenfile = open_window()
-    path1 = os.path.dirname(chosenfile)
-    extension = os.path.splitext(chosenfile)[1]
+    chosen_file = open_window()
+    path1 = os.path.dirname(chosen_file)
+    extension = os.path.splitext(chosen_file)[1]
     print("Enter new name for the chosen file")
-    newname = input()
-    path = os.path.join(path1, newname + extension)
+    new_name = input()
+    path = os.path.join(path1, new_name + extension)
     print(path)
-    os.rename(chosenfile, path)
+    os.rename(chosen_file, path)
     mb.showinfo('confirmation', "File Renamed !")
 
 
@@ -109,29 +148,29 @@ def move_file():
 
 # function to make a new folder
 def make_folder():
-    newfolderpath = filedialog.askdirectory()
+    new_folder_path = filedialog.askdirectory()
     print("Enter name of new folder")
-    newfolder = input()
-    path = os.path.join(newfolderpath, newfolder)
+    new_folder = input()
+    path = os.path.join(new_folder_path, new_folder)
     os.mkdir(path)
     mb.showinfo('confirmation', "Folder created !")
 
 
 # function to remove a folder
 def remove_folder():
-    delfolder = filedialog.askdirectory()
-    os.rmdir(delfolder)
+    del_folder = filedialog.askdirectory()
+    os.rmdir(del_folder)
     mb.showinfo('confirmation', "Folder Deleted !")
 
 
 # function to list all the files in folder
 def list_files():
-    folderlist = filedialog.askdirectory()
-    sortlist = sorted(os.listdir(folderlist))
+    folder_list = filedialog.askdirectory()
+    sort_list = sorted(os.listdir(folder_list))
     i = 0
-    print("Files in ", folderlist, "folder are:")
-    while i < len(sortlist):
-        print(sortlist[i] + '\n')
+    print("Files in ", folder_list, "folder are:")
+    while i < len(sort_list):
+        print(sort_list[i] + '\n')
         i += 1
 
 
@@ -146,22 +185,26 @@ Button(root, text="Count all characters in a text file", command=count_character
 
 Button(root, text="Count all characters without space", command=count_without_space).grid(row=25, column=2)
 
-Button(root, text="Count occurances", command=count_occurances).grid(row=35, column=2)
+Button(root, text="Count occurrences", command=count_occurrences).grid(row=35, column=2)
 
-Button(root, text="Open a File", command=open_file).grid(row=45, column=2)
+Button(root, text="Count words", command=count_words).grid(row=45, column=2)
 
-Button(root, text="Copy a File", command=copy_file).grid(row=55, column=2)
+Button(root, text="Append text", command=append_text).grid(row=55, column=2)
 
-Button(root, text="Delete a File", command=delete_file).grid(row=65, column=2)
+Button(root, text="Open a File", command=open_file).grid(row=65, column=2)
 
-Button(root, text="Rename a File", command=rename_file).grid(row=75, column=2)
+Button(root, text="Copy a File", command=copy_file).grid(row=755, column=2)
 
-Button(root, text="Move a File", command=move_file).grid(row=85, column=2)
+Button(root, text="Delete a File", command=delete_file).grid(row=85, column=2)
 
-Button(root, text="Make a Folder", command=make_folder).grid(row=95, column=2)
+Button(root, text="Rename a File", command=rename_file).grid(row=95, column=2)
 
-Button(root, text="Remove a Folder", command=remove_folder).grid(row=105, column=2)
+Button(root, text="Move a File", command=move_file).grid(row=105, column=2)
 
-Button(root, text="List all Files in Directory", command=list_files).grid(row=115, column=2)
+Button(root, text="Make a Folder", command=make_folder).grid(row=115, column=2)
+
+Button(root, text="Remove a Folder", command=remove_folder).grid(row=125, column=2)
+
+Button(root, text="List all Files in Directory", command=list_files).grid(row=135, column=2)
 
 root.mainloop()

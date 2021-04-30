@@ -2,7 +2,7 @@
 # python-file-manager
 
 
-Hi! **file-manager** is a file manager system (for windows) based on *Python 3.7*. It is made by [Syed Basit Ahmad](https://github.com/syedbasitahmad). With this python based file explorer you can view files, folders and perform actions on them. Actions such as moving them, deleting them (permanently or sending them to recycle bin),counting the numbers of characters in a file(with or without space). 
+Hi! **file-manager** is a file manager system (for windows) based on *Python 3.7* including **unit test cases using pytest**. It is made by [Syed Basit Ahmad](https://github.com/syedbasitahmad). With this python based file explorer you can view files, folders and perform actions on them. Actions such as moving them, deleting them (permanently or sending them to recycle bin),counting the numbers of characters in a file(with or without space). 
 
 ## Modules Used:
 
@@ -26,12 +26,14 @@ You need to install *send2trash* module first. You can do this by using the foll
  1. Count the number of characters in a text file with spaces.
  2. Count the number of characters without spaces
  3. Count all occurances of a specific word in a text file
- 4. Delete files/folder permanently
- 5. Send files/folder to Recycle Bin
- 6. Directly open files from the manager
- 7. Expand folders
- 8. Move files/folders to another location
- 9. Copy files/folders to another location
+ 5. Count total number of words in a text file
+ 6. Append text in file
+ 7. Delete files/folder permanently
+ 8. Send files/folder to Recycle Bin
+ 9. Directly open files from the manager
+ 10. Expand folders
+ 11. Move files/folders to another location
+ 12. Copy files/folders to another location
  
- ## I have also included three test cases using pytest.
+ ## I have also included five test cases using pytest.
  

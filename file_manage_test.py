@@ -1,6 +1,4 @@
-from file_manage import count_characters
-from file_manage import count_without_space
-from file_manage import count_occurances
+from file_manage import count_characters, count_without_space, count_occurrences, count_words, append_text
 
 
 def test_count_characters():
@@ -11,5 +9,13 @@ def test_count_without_space():
     assert count_without_space() == 3027
 
 
-def test_count_occurances():
-    assert count_occurances() == 5
+def test_count_occurrences():
+    assert count_occurrences() == 5
+
+
+def test_count_words():
+    assert count_words() == 550
+
+
+def test_append_text():
+    assert append_text() == 1
