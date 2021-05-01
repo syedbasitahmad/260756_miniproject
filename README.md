@@ -12,7 +12,7 @@ Hi! **file-manager** is a file manager system (for windows) based on *Python 3.7
 4. easygui
 
 Python 3. or above is recommended for using this program.
-You need to install *send2trash* module first. You can do this by using the following command:
+You need to install *easygui* module first. You can do this by using the following command:
 
 > pip install easygui
 
